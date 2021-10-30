@@ -8,17 +8,13 @@ if __name__ == "__main__":
     song_playing = []
     for _ in range(N):
         song_playing.extend([0 for _ in range(L)])
-        song_playing.extend([1 for _ in range(5)])
+        if _ != N - 1:
+            song_playing.extend([1 for _ in range(5)])
+    # print(song_playing)
 
-    while True:
-        if song_playing[D] == 1:
-            print(D)
+    answer = 0
+    while answer < len(song_playing):
+        if song_playing[answer]:
             break
-        else:
-            if D < len(song_playing):
-                D += D
-                if D >= len(song_playing):
-                    print(D)
-                    break
-            else:
-                break
+        answer += D
+    print(answer)
